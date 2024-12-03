@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contactez-Nous</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script>
+      // Fonction pour définir un cookie
+      function setCookie(name, value, days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/`;
+      }
+  
+      // Fonction pour obtenir la valeur d'un cookie
+      function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+  
+      // Fonction pour pré-remplir le formulaire avec les cookies existants
+      function fillFormFromCookies() {
+          document.querySelector('input[name="nom"]').value = getCookie("nom") || "";
+          document.querySelector('input[name="prenom"]').value = getCookie("prenom") || "";
+          document.querySelector('input[name="email"]').value = getCookie("email") || "";
+          document.querySelector('input[name="telephone"]').value = getCookie("telephone") || "";
+      }
+  
+      // Sauvegarde des données du formulaire dans des cookies
+      function saveFormToCookies() {
+          setCookie("nom", document.querySelector('input[name="nom"]').value, 30);
+          setCookie("prenom", document.querySelector('input[name="prenom"]').value, 30);
+          setCookie("email", document.querySelector('input[name="email"]').value, 30);
+          setCookie("telephone", document.querySelector('input[name="telephone"]').value, 30);
+          alert("Vos données ont été sauvegardées !");
+      }
+  
+      window.onload = fillFormFromCookies;
+  </script>
+  
+</head>
+<body>
+
+  <!-- Contenu de votre page -->
+  <header class="header">
+      <div class="container">
+          <div class="logo">
+              <img src="logo-rbg.png" alt="Logo">
+          </div>
+          <nav>
+              <ul>
+                  <li><a href="index.html">Accueil</a></li>
+                  <li><a href="about.html">À propos</a></li>
+                  <li><a href="activity.html">Activités</a></li>
+                  <li><a href="contact.html">Contacts</a></li>
+                  <li><a href="page_des_dons.html">Faire un don</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+</head>  
+
+<section class = "contact-section">
+    <div class = "contact-bg">
+        <h2 class="sectiontitle">Contacts</h2>
+    </div>
+
+
+    <div class = "contact-body">
+        <div class = "contact-info">
+          <div>
+            <span><i class = "fas fa-mobile-alt"></i></span>
+            <span>Téléphone</span>
+            <span class = "text">+212 612345678</span>
+          </div>
+          <div>
+            <span><i class = "fas fa-envelope-open"></i></span>
+            <span>E-mail</span>
+            <span class = "text">social_ensaag@gmail.com</span>
+          </div>
+          <div>
+            <span><i class = "fas fa-map-marker-alt"></i></span>
+            <span>Address</span>
+            <span class = "text">École Nationale des Sciences Appliquées,AGADIR</span>
+          </div>
+          <div>
+            <span><i class = "fas fa-clock"></i></span>
+            <span>Horaires</span>
+            <span class = "text">Lundi - Samedi <br>(9:00 AM -- 5:00 PM)</span>
+          </div>
+        </div>
+    </div>
+    <div id="Rejoignez-nous">
+    <!-- formule -->
+    <div class = "contact-footer1">
+      <h3>Formulaire</h3>
+    </div>
+      <div class = "contact-form">
+        <form onsubmit="saveFormToCookies(); return false;">
+          <div>
+              <input type="text" class="form-control" name="nom" placeholder="Nom">
+              <input type="text" class="form-control" name="prenom" placeholder="Prénom">
+          </div>
+          <div>
+              <input type="email" class="form-control" name="email" placeholder="E-mail">
+              <input type="text" class="form-control" name="telephone" placeholder="Téléphone">
+          </div>
+          <textarea rows="5" placeholder="Message" class="form-control"></textarea>
+          <input type="submit" class="send-btn" value="Enregistrer">
+      </form>
+      
+
+        <div>
+          <img src = "contacttt.png" alt = "">
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class = "contact-footer1">
+      <h3>Localisation</h3>
+    </div>
+    <div class = "map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3441.0647594035704!2d-9.532330525163125!3d30.405904474743604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3c833a697c883%3A0xd499cff904412ef6!2sENSA%20Agadir%20-%20Ecole%20Nationale%20des%20Sciences%20Appliqu%C3%A9es!5e0!3m2!1sfr!2sma!4v1733168270943!5m2!1sfr!2sma" width="90%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class = "contact-footer1">
+      <h3>Follow Us</h3>
+      <div class = "social-links">
+        <a href = "https://web.facebook.com/ClubSocialEnsaAgadir/?locale=fr_FR&_rdc=1&_rdr" class = "fab fa-facebook-f"></a>
+        <a href = "https://www.instagram.com/clubsocial_ensaa/?hl=fr" class = "fab fa-instagram"></a>
+        <a href = "https://fr.linkedin.com/company/club-social-ensa-agadir" class = "fab fa-linkedin"></a>
+        <a href = "https://www.youtube.com/@ClubSocialEnsaa" class = "fab fa-youtube"></a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Club Social ENSA Agadir - Tous droits réservés.</p>
+    </div>
+</footer>
+</body>
+</html>
